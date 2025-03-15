@@ -54,6 +54,13 @@ def download(filename):
     # 注意：JSON 不适合传输过大的二进制数据，Base64 会增加约33%大小&#8203;:contentReference[oaicite:10]{index=10}
     return jsonify(response), 200
 
+
+# 列出文件
+@app.route('/list_files', methods=['GET'])
+def list_files():
+    files = os.listdir('.')  # 列出当前目录的文件
+    return jsonify({"files": files}), 200
+
 if __name__ == '__main__':
     # 运行Flask应用（生产环境应使用更可靠的部署方式）
     app.run(host='0.0.0.0', port=5000)
