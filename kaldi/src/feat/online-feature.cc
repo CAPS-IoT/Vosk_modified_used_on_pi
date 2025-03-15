@@ -88,8 +88,7 @@ OnlineGenericBaseFeature<C>::OnlineGenericBaseFeature(
 }
 
 
-template <class C>virtual void Store_to_file();
-virtual void Get_input_from_external(const std::string &path, Matrix<BaseFloat> &mfcc_mat);
+template <class C>
 void OnlineGenericBaseFeature<C>::MaybeCreateResampler(
     BaseFloat sampling_rate) {
   BaseFloat expected_sampling_rate = computer_.GetFrameOptions().samp_freq;
@@ -181,66 +180,6 @@ void OnlineGenericBaseFeature<C>::InputFinished() {
   }
   input_finished_ = true;
   ComputeFeatures();
-  // Matrix<BaseFloat>* mfcc_mat = new Matrix<BaseFloat>(features_.Size(), features_.At(0)->Dim(), kUndefined);
-  // Get_input_from_external("/home/xuwei/vosk-build2/outt.txt", *mfcc_mat);
-  // for (int i = 0; i < mfcc_mat->NumRows(); ++i) {
-  //   for (int j = 0; j < mfcc_mat->NumCols(); ++j) {
-  //     std::cout << (*mfcc_mat)(i, j) << " ";
-  //   }
-  //   std::cout << std::endl;
-  // }
-
-  // std::ifstream infile("/home/xuwei/vosk-build2/outt.txt");
-  //   if (!infile.is_open()) {
-  //       std::cerr << "Error: Unable to open outt.txt" << std::endl;
-  //       return;
-  //   }
-
-  //   // std::vector<std::vector<float>> mfcc_features;
-  //   std::string line;
-
-  //   while (std::getline(infile, line)) {
-  //       std::istringstream iss(line);
-  //       Vector<BaseFloat> frame;
-  //       frame.Resize(40);
-  //       BaseFloat value;
-  //       int i = 0;
-  //       bool left = false;
-  //       while (iss >> value) {
-  //         frame(i) = value;
-  //         i++;
-
-  //       }
-  //       if(i > 0){
-  //         features_temp_.PushBack(new Vector<BaseFloat>(frame));
-  //       }
-
-  //   }
-
-  //   infile.close();
-  // std::cout << "final_.Dim(): " << features_temp_.Size() << std::endl;
-  // if(!(features_temp_.Size() == features_.Size())){
-  //   std::cerr << "Error: features_temp_.Size() != features_.Size()" << std::endl;
-  //   return;
-  // }
-
-
-//   for (int i = 0; i < features_temp_.Size(); ++i) {
-//     Vector<BaseFloat> *temp_feature = features_temp_.At(i);
-//     Vector<BaseFloat> *feature = features_.At(i);
-//     feature->CopyFromVec(*temp_feature);
-// }
-  std::cout << "features_ size: " << features_.Size() << std::endl;
-  // for (int i = 0; i < features_.Size(); ++i) {
-  //   const Vector<BaseFloat> *feature = features_.At(i);
-  //   std::cout << "Feature " << i << ": ";
-  //   for (int j = 0; j < feature->Dim(); ++j) {
-  //     std::cout << (*feature)(j) << " ";
-  //   }
-  //   std::cout << std::endl;
-  // }
-  
-  
 
 }
 
