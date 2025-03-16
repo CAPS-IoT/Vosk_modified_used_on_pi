@@ -1,0 +1,6 @@
+User: hi thank you for apply give me a notice at that time to notice me to take the pills
+AI: Got it! I'll help you set a reminder to take your pills at the specified time. Let me know what time you'd like the reminder to go off, and whether you need multiple reminders or just one for now.
+
+User: what i have asked in the last conversation tell me
+AI: I have recorded what you asked in the last conversation. Could you please let me know if there is a specific question or topic you would like me to address?
+
